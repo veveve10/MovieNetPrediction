@@ -8,7 +8,7 @@ O dataset escolido é o da MovieNet (http://movienet.site/) e para poder adquiri
 2. Meta (tamanho: 537MB, depois de dar unzip: 2.3GB)
 
 O projeto se resume na seguinte arquitetura:
-![alt text](https://github.c om/veveve10/MovieNetPrediction/blob/main/img/Diagram.PNG?raw=true "Diagram")
+![alt text](https://github.com/veveve10/MovieNetPrediction/blob/main/img/Diagram.PNG?raw=true "Diagram")
 
 O arquivo DataToClip.py tem a função de transformar os frames do filmes em um vetor [N, 512] onde N é o número de frames do filme. Para isso, ele utiliza o encoder de imagens do CLIP (https://openai.com/blog/clip/) e o código para essa rede pode ser encontrado em https://github.com/openai/CLIP. Os arquivos serão salvos como numpy arrays.
 
@@ -54,7 +54,7 @@ Abaixo os resultados publicados (Resnet) contra os resultados pelo modelo LSTM B
 | Western     | 88.89         | 51.93      | 73.99 | Western                       | 66.67         | 8.33       | 22.02 |
 
 
-Podemos ver que no geral, a precisão da Resnet é superior a do modelo treinado, porém existe uma troca muito grande com o recall apresentado, enquanto o modelo mostrado busca um balanço entre as métricas melhor. 
+Podemos ver que no geral, a precisão da Resnet é superior a do modelo treinado, porém existe uma troca muito grande com o recall apresentado, enquanto o modelo mostrado busca um balanço entre as métricas melhor.
 
 
 
