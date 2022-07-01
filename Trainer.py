@@ -17,6 +17,10 @@ import torch.optim.lr_scheduler as lr_scheduler
 class Trainer:
 
     def __init__(self, cfg: Configuration):
+        """ Initialization.
+
+        :param cfg: The .yaml configuration setted.
+        """
         self.writer = SummaryWriter()
         self.model = []
         self.validation_set = []
@@ -62,7 +66,12 @@ class Trainer:
                                                            num_workers=4)
         self.validation_generator = validation_generator
 
-    def to_tensorboard(self, map_dictionary: dict, epoch: int):
+    def __to_tensorboard(self, map_dictionary: dict, epoch: int):
+        """ Auxiliary function to save the metrics into a tensorboard.
+
+        :param map_dictionary: Dictionary containing the information of the metrics.
+        :param epoch: Which epoch the metrics were generated.
+        """
         self.writer.add_scalar('Avg precision', map_dictionary['weighted avg']['precision'], epoch)
         self.writer.add_scalar('Avg recall', map_dictionary['weighted avg']['recall'], epoch)
         self.writer.add_scalar('Avg f1-score', map_dictionary['weighted avg']['f1-score'], epoch)
@@ -72,6 +81,11 @@ class Trainer:
               f'Avg f1-score [weighted:{map_dictionary["micro avg"]["f1-score"]:.4f}] ')
 
     def get_prediction_from_model(self, model):
+        """ Generates the prediction of a model given the input values.
+
+        :param model: The given model to get the prediction
+        :return: Return the labels (ground truth), the binary predictions and the raw output prediction.
+        """
         with torch.no_grad():
             device = "cuda" if torch.cuda.is_available() else "cpu"
             torch.backends.cudnn.benchmark = True
@@ -108,12 +122,12 @@ class Trainer:
         return labels, predictions, pure_predictions
 
     def train(self, cfg: Configuration):
-        torch.manual_seed(cfg.seed_config.SEED)
+        """ Generates a model with the parameters found the .yaml file.
 
-        with open(cfg.file_path_config.list_id_path, 'rb') as f:
-            list_id = pickle.load(f)
-        with open(cfg.file_path_config.movie_map_path, 'rb') as f:
-            movie_map = pickle.load(f)
+        :param cfg:  The .yaml configuration setted.
+        :return: Returns the trained model.
+        """
+        torch.manual_seed(cfg.seed_config.SEED)
 
         with torch.no_grad():
             device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -246,7 +260,7 @@ class Trainer:
             self.writer.add_scalar('training loss', running_loss / size, epoch)
             self.writer.add_scalar('validation loss', running_loss_val / size_val, epoch)
             self.writer.add_scalar('learning rate', optimizer.param_groups[0]['lr'], epoch)
-            self.to_tensorboard(classification_report, epoch)
+            self.__to_tensorboard(classification_report, epoch)
 
             scheduler.step()
 
@@ -257,6 +271,5 @@ class Trainer:
 
         self.writer.flush()
         self.writer.close()
-        print("Finished")
 
         return torch.load(model_path + model_name)

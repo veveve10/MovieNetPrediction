@@ -86,6 +86,11 @@ def getGenre(movie_id: str, meta_dir: str) -> list[int]:
 
 
 def run(cfg: Configuration):
+    """ Runs the data processing, making the data have the same dimensions across all the dataset.
+    The variables for this process are stored in the .yaml file.
+
+    :param cfg: The .yaml configuration setted. The paths will be used to save the data.
+    """
     random.seed(cfg.seed_config.SEED)
 
     movie_map = {}

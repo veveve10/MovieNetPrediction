@@ -36,6 +36,11 @@ class LSTM(nn.Module):
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
+        """ Forward propagation function.
+
+        :param x: The input data.
+        :return: return the data afterwards the foward propagation.
+        """
         # Set initial hidden states (and cell states for LSTM)
 
         # tensor of shape (batch_size, seq_length, hidden_size)

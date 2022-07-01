@@ -56,7 +56,7 @@ def run(cfg: Configuration):
 
         count = 1
         for folder in true_paths:
-            print("Filme start " + str(count) + " out of " + str(len(true_paths)))
+            print("Film start " + str(count) + " out of " + str(len(true_paths)))
             film_code = folder.split("\\")
             files = glob(folder + '/*.jpg')
             film_aux = np.array([]).reshape((0, 512))
@@ -76,7 +76,7 @@ def run(cfg: Configuration):
                 del film
             np.save(cfg.file_path_config.encoded_trailer_tensor_dir + film_code[1], film_aux)
             del film_aux
-            print("Filme " + str(count) + " out of " + str(len(true_paths)) + " done in " + str(
+            print("Film " + str(count) + " out of " + str(len(true_paths)) + " done in " + str(
                 time.process_time() - start) + "seconds")
             count += 1
-        print("Filmes encerrados e salvos")
+        print("Films are done and saved")
