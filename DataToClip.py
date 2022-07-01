@@ -1,12 +1,9 @@
 import torch
 import clip
-import math
 import numpy as np
 import time
 from glob import glob
 from PIL import Image
-import hydra
-from hydra.core.config_store import ConfigStore
 from conf.config import Configuration
 
 

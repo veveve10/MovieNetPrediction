@@ -1,13 +1,9 @@
 import random
 from random import shuffle
-
 import numpy as np
 from glob import glob
 import json
 import pickle
-
-import hydra
-from hydra.core.config_store import ConfigStore
 from conf.config import Configuration
 
 genre_to_position = {"Drama": 0,

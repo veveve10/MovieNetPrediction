@@ -1,12 +1,5 @@
-import pickle
-import os
-import datetime
 import torch
-import torch.nn as nn
-import numpy as np
 from Metrics import Metrics
-from Dataset import Dataset
-from Lstm import LSTM
 import DataProcessing
 import DataToClip
 from Trainer import Trainer
@@ -14,8 +7,6 @@ import util
 import hydra
 from hydra.core.config_store import ConfigStore
 from conf.config import Configuration
-from torch.utils.tensorboard import SummaryWriter
-import torch.optim.lr_scheduler as lr_scheduler
 
 cs = ConfigStore.instance()
 cs.store(name='execution_config', node=Configuration)
