@@ -1,0 +1,42 @@
+code_flow_config:
+  do_data_to_clip: False
+  do_data_processing: False
+  do_training: True
+
+model_config:
+  model_dir: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/Models/"
+  n_epochs: 1
+  input_size: 512
+  sequence_length: 256
+  batch_size: 32
+  hidden_size: 128
+  num_layers: 1
+  train_split_proportion: 0.8
+  class_weights_crossentropy: True
+  patience: 160
+  learning_rate: 0.001
+  learning_decay: 150
+  learning_decay_ratio: 0.6
+
+
+seed_config:
+  SEED: 0
+
+file_path_config:
+  trailers_dir: ""
+  encoded_trailer_tensor_dir: "D:/MovieDataset/output_tensor/*"
+  processed_tensor_dir: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/ProcessedTensor/"
+  list_id_path: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/list_id.pkl"
+  movie_map_path: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/movie_map.pkl"
+  meta_data_dir: "D:/MovieDataset/meta/"
+  base_dir: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/"
+  model_path: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/Models/"
+  yaml_path: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/conf/config.yaml"
+
+clip_encoder_config:
+  batch_size: 64
+
+data_processing_config:
+  patch_size: 256
+  number_patches: 1
+
