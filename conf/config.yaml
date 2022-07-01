@@ -17,6 +17,8 @@ model_config:
   learning_rate: 0.001
   learning_decay: 150
   learning_decay_ratio: 0.6
+  max_pooling: 4
+  isbiderectional: True
 
 
 seed_config:
@@ -29,7 +31,6 @@ file_path_config:
   list_id_path: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/list_id.pkl"
   movie_map_path: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/movie_map.pkl"
   meta_data_dir: "D:/MovieDataset/meta/"
-  base_dir: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/"
   model_path: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/Models/"
   yaml_path: "C:/Users/hugofac.TECGRAF/PycharmProjects/MovieNetRefactored/conf/config.yaml"
 

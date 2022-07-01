@@ -169,7 +169,7 @@ class Trainer:
         training_generator = self.training_generator
         validation_generator = self.validation_generator
 
-        model = LSTM(input_size, hidden_size, num_layers, num_classes, sequence_length).to(device)
+        model = LSTM(input_size, hidden_size, num_layers, num_classes, sequence_length, cfg.model_config.max_pooling, cfg.model_config.isbiderectional).to(device)
 
         # Loss and optimizer
         if cfg.model_config.class_weights_crossentropy:

@@ -22,6 +22,8 @@ class model_config:
     learning_rate: float
     learning_decay: int
     learning_decay_ratio: int
+    max_pooling: int
+    isbiderectional: bool
 
 
 @dataclass
@@ -37,7 +39,6 @@ class file_path_config:
     list_id_path: str
     movie_map_path: str
     meta_data_dir: str
-    base_dir: str
     model_path: str
     yaml_path: str
 
