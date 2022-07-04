@@ -1,4 +1,4 @@
-# MovienetPrediction
+# Classificação de gênero de filmes com redes neurais
 
 
 
